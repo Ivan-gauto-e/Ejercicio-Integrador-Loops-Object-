@@ -65,3 +65,29 @@ function prestarLibro(tituloBuscado) {
 prestarLibro("1984");
 prestarLibro("Frankenstein");
 prestarLibro("el senior de los anillos");
+
+function listarLibrosPrestados() {
+  return libros.filter((libros) => libros.prestado);
+}
+console.log(listarLibrosPrestados());
+
+function actualizarAñoPublicacion(tituloBuscado, añoNuevo) {
+  let encontrado = false;
+  const librosActualizados = libros.map((libro) => {
+    if (libro.titulo.toLowerCase() === tituloBuscado.toLowerCase()) {
+      encontrado = true;
+      const librosActualizados = { ...libro, año: añoNuevo };
+      console.log("año actualizado del libro:", librosActualizados);
+    } else {
+      return libro;
+    }
+  });
+}
+actualizarAñoPublicacion("Frankenstein", 2024);
+
+function contarPropiedadesLibro(libro) {
+  return Object.keys(libro).length;
+}
+console.log(contarPropiedadesLibro(Frankenstein));
+
+function paresClaveValor(libro) {}
